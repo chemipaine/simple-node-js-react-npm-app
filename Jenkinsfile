@@ -32,8 +32,8 @@ pipeline {
             }
             steps {
                 sh 'docker build -t simplenodejs:latest .' 
-                sh 'docker tag simplenodejs:latest localhost:5000/simplenodejs:latest'
-                sh 'docker push localhost:5000/simplenodejs:latest'
+                sh 'docker tag simplenodejs:latest chemipaine/simplenodejs:latest'
+                sh 'docker push chemipaine/simplenodejs:latest'
             }
         }
         stage('Deploy') { 
@@ -41,7 +41,7 @@ pipeline {
                 label 'master'
             }
             steps {
-                sh 'kubectl apply -f ./kubernetes/deployment.yaml' 
+                sh 'kubectl apply -f kubernetes' 
             }
         }
         

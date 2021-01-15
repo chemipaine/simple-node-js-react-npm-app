@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: simplenodejs
-          image: localhost:5000/simplenodejs:latest
+          image: chemipaine/simplenodejs:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
