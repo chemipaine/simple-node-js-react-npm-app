@@ -26,6 +26,14 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
+        stage('CreateImage') { 
+            agent {
+                label 'master'
+            }
+            steps {
+                sh 'docker build -t simplenodejs:latest .' 
+            }
+        }
         stage('Deploy') { 
             agent {
                 label 'master'
