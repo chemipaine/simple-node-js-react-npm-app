@@ -1,0 +1,17 @@
+pipeline {
+    agent none
+    environment {
+        CI = 'true' 
+    }
+    stages {
+        stage('Deploy') { 
+            agent {
+                label 'master'
+            }
+            steps {
+                sh 'kubectl apply -f kubernetes' 
+            }
+        }
+        
+    }
+}
