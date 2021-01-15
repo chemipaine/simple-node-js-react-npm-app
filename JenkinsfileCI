@@ -33,6 +33,7 @@ pipeline {
             steps {
                 sh 'docker build -t simplenodejs:latest .' 
                 sh 'docker tag simplenodejs:latest chemipaine/simplenodejs:latest'
+                sh 'docker tag chemipaine/simplenodejs:latest chemipaine/simplenodejs:${GIT_COMMIT}'
                 sh 'docker push chemipaine/simplenodejs:latest'
             }
         }
