@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: simplenodejs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simplenodejs
+  template:
+    metadata:
+      labels:
+        app: simplenodejs
+    spec:
+      containers:
+        - name: simplenodejs
+          image: localhost:5000/simplenodejs:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always
